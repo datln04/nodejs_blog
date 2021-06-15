@@ -6,12 +6,18 @@ const path = require("path");
 
 const app = express();  // return obj de xay dung website
 
-//
+// static file
 app.use(express.static(path.join(__dirname, 'public')));
+
+//
+app.use(express.urlencoded({
+    extended: true
+}));  // doc data tu form
+app.use(express.json());    // doc data tu 1 resource, XMLHttpRequest, axios,   
 
 
 // HTTP logger
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 
 // Template Engine
 app.engine('.hbs', handlebars({extname: '.hbs'}));
@@ -26,6 +32,15 @@ const port = 3000;
 app.get("/", (req,res) =>(res.render('home')));
 
 app.get("/news", (req,res) =>(res.render('news')));
+
+app.get("/search", (req,res) =>(res.render('search'))); // req.query
+
+app.post("/search", (req,res) => {
+
+    console.log(req.body)
+
+    res.send('');
+})
 
 
 app.listen(port, () => console.log(`Server is ready in port ${port}`));
