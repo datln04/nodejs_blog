@@ -1,11 +1,11 @@
 class NewController {
   //[Get] News
   index(req, res) {
-    res.render('news');
+    res.render("news");
   }
 
   show(req, res) {
-    res.send('News Detail');
+    res.send("News Detail");
   }
 }
 
