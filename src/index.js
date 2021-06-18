@@ -21,11 +21,11 @@ app.use(express.json());    // doc data tu 1 resource, XMLHttpRequest, axios,
 //app.use(morgan('combined'));
 
 // Template Engine
-    app.engine(".hbs", handlebars({extname: '.hbs'}));
+app.engine(".hbs", handlebars({extname: '.hbs'}));
 
-    app.set('view engine', '.hbs'); // set view engine la handlebars
+app.set('view engine', '.hbs'); // set view engine la handlebars
 
-    app.set('views', path.join(__dirname, 'resources\\views'));
+app.set('views', path.join(__dirname, 'resources\\views'));
 
 // routes init
 

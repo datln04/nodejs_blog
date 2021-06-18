@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/datln04/nodejs_blog#readme",
   "lint-staged": {
-      "src/**/*.{js,json,scss}": "prettier --single-quote --check --trailing-comma all --write"
+      "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
   },
   "husky": {
     "hooks": {
