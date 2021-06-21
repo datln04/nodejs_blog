@@ -4,7 +4,8 @@ const handlebars = require("express-handlebars");
 const path = require("path");
 
 const route = require("./routes");
-const db = require('./config/db');
+
+const db = require('./config/db'); // khai bao DB connection
 
 const port = 3000;
 const app = express(); // return obj de xay dung website
@@ -32,7 +33,7 @@ app.engine(".hbs", handlebars({ extname: ".hbs" }));
 
 app.set("view engine", ".hbs"); // set view engine la ha    ndlebars
 
-app.set("views", path.join(__dirname, "resources\\views"));
+app.set("views", path.join(__dirname, "resources","views"));
 
 // routes init
 

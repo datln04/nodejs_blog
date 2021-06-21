@@ -1,13 +1,16 @@
-const Course = require('../models/Course');
-
+const Course = require('../models/Course'); // doc trong docs cua mongoose automative luon
+const {mutipleMongooseToObject} = require('../../util/mongoose');
 
 class SiteController {
   //[Get] News
-  index(req, res) {
-      Course.find({}, function(err, course) {
-        if(!err) res.json(course);
-        res.status(400).json({errors: 'ERRORS'});
-      })
+  index(req, res, next) {
+      Course.find({})
+        .then(courses => {                
+            res.render('home',{ 
+              courses: mutipleMongooseToObject(courses)
+            });
+        })
+        .catch(next);
 
   }
 

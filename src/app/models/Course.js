@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema; // doc trong docs mongoose automative
 
 const Course = new Schema({
     name: {type: String, maxLength: 255},
@@ -10,4 +10,4 @@ const Course = new Schema({
 
 });
 
-module.exports = mongoose.model('Course', Course);
+module.exports = mongoose.model('Course', Course);  // doc trong docs luon hen
