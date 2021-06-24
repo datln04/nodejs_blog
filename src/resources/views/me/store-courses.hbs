@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Short Name</th>
+        <th scope="col">Course Name</th>
+        <th scope="col">Create Course</th>
+        <th>Edit</th>
+        <td>Delete</td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each course}}
+        <tr>
+            <td>{{sum @index 1}}</td>
+            <td>{{this.slug}}</td>
+            <td>{{this.name}}</td>  
+            <td>{{this.createdAt}}</td> 
+            <td><a href="/courses/{{this._id}}/edit">Edit</a></td>
+            <td><a href="">Remove</a></td> 
+        </tr>
+    {{/each}}
+   
+  </tbody>
+</table>

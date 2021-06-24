@@ -1,6 +1,7 @@
 const express = require("express"); // vao lock-json lay express ra
 const morgan = require("morgan");
 const handlebars = require("express-handlebars");
+var methodOverride = require('method-override') //override method
 const path = require("path");
 
 const route = require("./routes");
@@ -25,13 +26,22 @@ app.use(
 ); // doc data tu form
 app.use(express.json()); // doc data tu 1 resource, XMLHttpRequest, axios,
 
+app.use(methodOverride('_method'))// override method when submit form
+
 // HTTP logger
 //app.use(morgan('combined'));
 
 // Template Engine
-app.engine(".hbs", handlebars({ extname: ".hbs" }));
+app.engine(".hbs", handlebars(
+  { 
+    extname: ".hbs",
+    helpers: {
+      sum: (a,b) => a+b,
+    }
+  }
+  ));
 
-app.set("view engine", ".hbs"); // set view engine la ha    ndlebars
+app.set("view engine", ".hbs"); // set view engine la handlebars
 
 app.set("views", path.join(__dirname, "resources","views"));
 
